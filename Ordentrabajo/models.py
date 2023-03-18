@@ -21,3 +21,11 @@ class OrdenTrabajo(models.Model):
     procesos=models.CharField('Procesos',max_length=9,choices=procesos_choices, blank=False, null=False)
     ubicacion=models.CharField('Ubicacion', max_length=200, blank=False, null=False)
     estado=models.CharField('Estado',max_length=1, choices=estado_choices,blank=False, null=False )
+
+    class Meta:
+        verbose_name='OrdenTrabajo'
+        verbose_name_plural= 'OrdenesdeTrabajo'
+        ordering=['id_orden']
+    
+    def __str__(self):
+        return str(self.id_orden) + ' ' + self.cliente
