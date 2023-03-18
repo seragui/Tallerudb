@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block title %}Editar Cargo {% endblock %}
+
+{% block content %}
+<div class="container">
+<form method="POST" action="" class="con">
+  {% csrf_token %}
+  <fieldset>
+    <legend>Editar Cargo</legend>
+    {{form.as_p}}
+    <button type="submit" class="btn btn-success">Actualizar</button>
+    <button type="reset" class="btn btn-danger">Borrar</button>
+    <a href="{% url 'empleado:listar_cargo'%}" class="btn btn-secondary">Regresar</a>
+  </fieldset>
+</form>
+</div>
+{% endblock %}

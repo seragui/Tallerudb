@@ -1,0 +1,10 @@
+<form method="POST">
+  {% csrf_token %}
+  <h1>
+    <p>
+      <strong>¿Desea eliminar el registro seleccionado {{object}}?</strong>
+    </p>
+  </h1>
+  <button type="submit">Confirmar</button>
+  <a href="{% url 'empleado:listar_cargo'%}" class="button">Cancelar</a>
+</form>

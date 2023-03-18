@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+    <h3>Actualizar Empleado</h3>
+        <form method="POST" class="border border-dark p-2 mb-2">
+          {% csrf_token %} 
+          {{form.as_p}}
+          <div class="float-right">
+            <button type="submit" class="btn btn-success">Actualizar</button>
+            <button type="reset" class="btn btn-danger">Borrar</button>
+            <a href="{% url 'empleado:listar_empleado'%}" class="btn btn-secondary">Regresar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

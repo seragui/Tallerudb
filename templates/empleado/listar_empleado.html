@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% block title %}Gestionar Empleados{% endblock %}
+
+
+{% block content%}
+
+{% if empleados %}   
+<div class="container">
+  <h3 id="Ingreso">Gestion de Empleados</h3>
+  <hr>
+  <a class="btn btn-success" href="{% url 'empleado:crear_empleado' %}">Ingresar Empleado</a>
+  <hr>
+<table id="table_consulta" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Cargo</th>
+      <th>Departamento</th>
+      <th>Opciones</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for empleado in empleados %}
+    <tr>
+      <td>{{empleado.idempleado}}</td>
+      <td>{{empleado.nombre}}</td>
+      <td>{{empleado.apellidos}}</td>
+      <td>{{empleado.id_cargo}}</td>
+      <td>{{empleado.id_departamento}}</td>
+      <td>
+        <a href="{% url 'empleado:editar_empleado' empleado.idempleado %}" class="btn btn-warning">Actualizar</a>
+        <a href="{% url 'empleado:eliminar_empleado' empleado.idempleado %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+
+{% else %}
+<div class="container">
+<h1>No existen Empleados registrados</h1>
+<h3 id="Ingreso">Gestion de Empleados</h3>
+  <hr>
+  <a class="btn btn-success" href="{% url 'empleado:crear_empleado' %}">Ingresar Empleado</a>
+</div>
+{% endif %}
+{% endblock %}

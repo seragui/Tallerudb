@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+  <h3><b>Ingresar material</b></h3>
+  <br>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <form method="POST" action="" class="con">
+        {% csrf_token %} 
+        {{form.as_p}}
+        <div class="float-right">
+          <button type="submit" class="btn btn-primary">Crear</button>
+          <button type="reset" class="btn btn-danger">Borrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

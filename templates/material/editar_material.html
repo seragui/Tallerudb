@@ -1,0 +1,17 @@
+{% extends "index.html" %} {% block title %}Editar Material{% endblock %} 
+{% block content %}
+<div class="container">
+  <form method="POST" action="" class="con">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Editar Material</legend>
+      {{form.as_p}}
+      <button type="submit" class="btn btn-success">Actualizar</button>
+      <button type="reset" class="btn btn-danger">Borrar</button>
+      <a href="{% url 'material:listar_material'%}" class="btn btn-secondary"
+        >Regresar</a
+      >
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

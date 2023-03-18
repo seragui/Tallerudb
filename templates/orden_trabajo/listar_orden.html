@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+
+{% block title %}Gestionar Departamento{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>Ordenes de Trabajo</h1>
+<hr>
+<a href="{% url 'orden_trabajo:crear_orden_trabajo'%}" class="btn btn-success">Crear Orden de Trabajo</a>
+<hr>
+
+{% if ordenes %}
+
+
+  <table id="table_citas" class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Cliente</th>
+        <th>Proceso</th>
+        <th>Estado</th>
+        <th>Prioridad</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for orden in ordenes %}
+      <tr>
+        <td>{{orden.id_orden}}</td>
+        <td>{{orden.cliente}}</td>
+        <td>{{orden.procesos}}</td>
+        <td>{{orden.estado}}</td>
+        <td>{{orden.prioridad}}</td>
+        <td>
+          <a
+            href="{% url 'orden_trabajo:editar_orden' orden.id_orden %}"
+            class="btn btn-warning"
+            >Actualizar</a
+          >
+          <a
+            href="{% url 'orden_trabajo:editar_orden' orden.id_orden %}"
+            class="btn btn-danger"
+            >Eliminar</a
+          >
+        </td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% else %}
+  <h1>No existen ordenes de trabajo registradas</h1>
+  {% endif %}
+</div>
+{% endblock %}
